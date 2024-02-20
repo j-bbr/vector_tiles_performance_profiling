@@ -1,16 +1,18 @@
 # vector_tiles_performance_profiling
 
-A new Flutter project.
+Profiling project for [flutter-vector-map-tiles](https://github.com/greensopinion/flutter-vector-map-tiles) 
+adapted from [Flutter Cookbook](https://docs.flutter.dev/cookbook/testing/integration/profiling).
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Add your styles & api keys under map variables. 
+Optionally set the test to a different starting location and zoom.
+Then run the following from the package root.
+```
+flutter drive \
+--driver=test_driver/perf_driver.dart \
+--target=integration_test/map_interaction_test.dart \
+--profile --no-dds -d <YOUR_TESTING_DEVICE>
+```
+This should result in a timeline.json file
+(for use with chrome://tracing) and a json summary file in your build folder.
